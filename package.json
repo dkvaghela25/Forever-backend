@@ -1,0 +1,29 @@
+{
+  "name": "forever-backend",
+  "version": "1.0.0",
+  "description": "Backend code for forever",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/dkvaghela25/Forever-backend.git"
+  },
+  "author": "Divyang Vaghela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkvaghela25/Forever-backend/issues"
+  },
+  "homepage": "https://github.com/dkvaghela25/Forever-backend#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "mongoose-sequence": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
