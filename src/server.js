@@ -1,14 +1,15 @@
 const express = require("express");
 const connectDB = require("./database/connect");
-const User = require("./database/model/User");
+const { apiRouter } = require("./api");
 require("dotenv").config();
 
 const app = express();
 
+connectDB(); // Connect to MongoDB
+
 // Middleware
 app.use(express.json());
-
-connectDB(); // Connect to MongoDB
+app.use("/api", apiRouter);
 
 // Simple route
 app.get("/health", async (req, res) => {
