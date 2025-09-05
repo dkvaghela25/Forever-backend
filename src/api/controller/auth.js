@@ -57,10 +57,10 @@ const loginUser = async (req, res) => {
         if (!password) throw new RequestInputError('Password is required');
 
         const user = await User.findOne({ $or: [{ email: credentials }, { username: credentials }] });
-        if (!user) throw new ValidationError('Invalid credentials');
-
+        if (!user) throw new ValidationError('User not found');
+        
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) throw new ValidationError('Invalid credentials');
+        if (!isMatch) throw new ValidationError('Wrong Password');
 
         let json = { "user_id": user.userId }
         let jwtToken = jwt.sign(json, process.env.JWT_SECRET, { expiresIn: 3600 });

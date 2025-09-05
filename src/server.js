@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const connectDB = require("./database/connect");
 const { apiRouter } = require("./api");
 require("dotenv").config();
@@ -8,6 +9,7 @@ const app = express();
 connectDB(); // Connect to MongoDB
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use("/api", apiRouter);
 
